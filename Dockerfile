@@ -12,11 +12,11 @@ RUN apt-get update -y && \
 		git
 
 
-RUN export LATEST_VERSION="2018-10-05"; \
-	wget http://nlp.stanford.edu/software/stanford-corenlp-full-${LATEST_VERSION}.zip; \
-	unzip stanford-corenlp-full-${LATEST_VERSION}.zip; \
-	mv stanford-corenlp-full-${LATEST_VERSION} CoreNLP; \
-	rm stanford-corenlp-full-${LATEST_VERSION}.zip; \
+RUN export LATEST_VERSION="4.2.0"; \
+	wget http://nlp.stanford.edu/software/stanford-corenlp-latest.zip; \
+	unzip stanford-corenlp-latest.zip; \
+	mv stanford-corenlp-${LATEST_VERSION} CoreNLP; \
+	rm stanford-corenlp-latest.zip; \
 	cd CoreNLP; \
 	export CLASSPATH=""; for file in `find . -name "*.jar"`; do export CLASSPATH="$CLASSPATH:`realpath $file`"; done
 
